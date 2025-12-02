@@ -1,13 +1,21 @@
 <?php
+
 namespace App\Controllers;
+
 use App\Models\AiLogModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Ai extends BaseController {
+class Ai extends BaseController
+{
     use ResponseTrait;
-    public function index() { return view('nano_banana'); }
-    
-    public function history() {
+
+    public function index()
+    {
+        return view('nano_banana');
+    }
+
+    public function history()
+    {
         try {
             $model = new AiLogModel();
             $data = $model->orderBy('id', 'DESC')->findAll(20);
@@ -15,47 +23,85 @@ class Ai extends BaseController {
         } catch (\Exception $e) { return $this->respond(['history' => []]); }
     }
 
-    public function generate() {
+    public function generate()
+    {
+        // 1. Force JSON
         $this->response->setHeader('Content-Type', 'application/json');
+
         $json = $this->request->getJSON();
         $prompt = $json->prompt ?? '';
-        $img = $json->image ?? null;
-        
-        if (!$prompt) return $this->fail('Prompt kosong', 400);
+        $imageBase64 = $json->image ?? null;
+        // Default ke 2.5-flash jika user tidak memilih
+        $selectedModel = $json->model ?? 'gemini-2.5-flash';
+
+        if (!$prompt) return $this->fail('Prompt kosong.', 400);
+
         $apiKey = getenv('GOOGLE_API_KEY');
-        if (!$apiKey) return $this->fail('API Key Missing', 500);
+        if (!$apiKey) return $this->fail('API Key Error.', 500);
 
-        // STRATEGI: Coba 2.5-pro -> 1.5-pro -> 1.5-flash
-        $models = ['gemini-2.5-pro', 'gemini-1.5-pro', 'gemini-1.5-flash'];
-        $finalTxt = null; $errs = [];
+        // 2. WHITELIST MODEL (Hanya 2.5 Series)
+        $validModels = [
+            'gemini-2.5-pro', 
+            'gemini-2.5-flash'
+        ];
 
-        foreach ($models as $m) {
-            $res = $this->callG($apiKey, $m, $prompt, $img);
-            if ($res['ok']) { $finalTxt = $res['txt']; break; }
-            $errs[] = "$m: " . $res['err'];
+        // Validasi Keras
+        if (!in_array($selectedModel, $validModels)) {
+            $selectedModel = 'gemini-2.5-flash';
         }
 
-        if (!$finalTxt) return $this->fail("Gagal: " . implode('|', $errs), 502);
+        // 3. EKSEKUSI
+        $res = $this->callGemini($apiKey, $selectedModel, $prompt, $imageBase64);
 
-        try { (new AiLogModel())->insert(['prompt'=>$prompt, 'response'=>$finalTxt]); } catch(\Exception $e){}
-        return $this->respond(['result' => $finalTxt]);
+        if (!$res['success']) {
+            return $this->fail("Gagal ($selectedModel): " . $res['error'], 502);
+        }
+
+        // 4. LOGGING
+        try {
+            $modelDB = new AiLogModel();
+            $modelDB->insert([
+                'prompt' => $prompt . " [$selectedModel]", 
+                'response' => $res['text']
+            ]);
+        } catch (\Exception $e) {}
+
+        return $this->respond(['result' => $res['text']]);
     }
 
-    private function callG($k, $m, $t, $i) {
-        $url = "https://generativelanguage.googleapis.com/v1beta/models/$m:generateContent?key=$k";
-        $pts = [['text'=>$t]];
-        if($i && strlen($i)>100 && $m!=='gemini-pro') {
-            if(strpos($i,',')!==false) $i=explode(',',$i)[1];
-            $pts[]=['inline_data'=>['mime_type'=>'image/jpeg','data'=>$i]];
+    private function callGemini($key, $model, $text, $image) {
+        $url = "https://generativelanguage.googleapis.com/v1beta/models/$model:generateContent?key=$key";
+        
+        $parts = [['text' => $text]];
+        
+        if ($image && strlen($image) > 100) {
+            if (strpos($image, ',') !== false) $image = explode(',', $image)[1];
+            $parts[] = ['inline_data' => ['mime_type' => 'image/jpeg', 'data' => $image]];
         }
+
         $ch = curl_init($url);
-        curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER=>true, CURLOPT_POST=>true, CURLOPT_TIMEOUT=>60,
-            CURLOPT_HTTPHEADER=>['Content-Type: application/json'],
-            CURLOPT_POSTFIELDS=>json_encode(['contents'=>[['parts'=>$pts]]])]);
-        $res=curl_exec($ch); $code=curl_getinfo($ch, CURLINFO_HTTP_CODE); curl_close($ch);
-        $d=json_decode($res,true);
-        if($code===200 && isset($d['candidates'][0]['content']['parts'][0]['text']))
-            return ['ok'=>true, 'txt'=>$d['candidates'][0]['content']['parts'][0]['text']];
-        return ['ok'=>false, 'err'=>$d['error']['message']??$code];
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+            CURLOPT_POSTFIELDS => json_encode(['contents' => [['parts' => $parts]]]),
+            CURLOPT_TIMEOUT => 60
+        ]);
+        
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlErr = curl_error($ch);
+        curl_close($ch);
+
+        if ($curlErr) return ['success' => false, 'error' => "Koneksi: $curlErr"];
+
+        $data = json_decode($response, true);
+
+        if ($httpCode === 200 && isset($data['candidates'][0]['content']['parts'][0]['text'])) {
+            return ['success' => true, 'text' => $data['candidates'][0]['content']['parts'][0]['text']];
+        }
+
+        $msg = $data['error']['message'] ?? "HTTP $httpCode";
+        return ['success' => false, 'error' => $msg];
     }
 }
