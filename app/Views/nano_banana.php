@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
-<title>DEV daily</title>
+<title>DEV.daily</title>
 
 <!-- ASSETS LOKAL -->
 <link rel="stylesheet" href="<?= base_url('assets/css/typography.css') ?>">
@@ -134,7 +134,7 @@
                         <!-- CUSTOM MODEL SELECTOR (Pill) -->
                         <div class="relative">
                             <button onclick="toggleModelMenu()" id="model-trigger" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all group">
-                                <span id="current-model-label" class="text-[10px] font-heading font-bold text-gray-300 uppercase tracking-wide group-hover:text-white">DEV PRO 1.0</span>
+                                <span id="current-model-label" class="text-[10px] font-heading font-bold text-gray-300 uppercase tracking-wide group-hover:text-white">DEV Pro 1.0</span>
                                 <i data-lucide="chevron-up" class="w-3 h-3 text-gray-500 group-hover:text-white transition-transform" id="model-arrow"></i>
                             </button>
 
@@ -142,19 +142,19 @@
                             <div id="model-menu" class="hidden absolute bottom-full left-0 mb-2 w-48 bg-[#0b1829] border border-white/10 rounded-xl shadow-2xl p-1 z-50 dropdown-enter overflow-hidden">
                                 <div onclick="selectModel('dev-pro', 'DEV PRO 1.0')" class="p-2.5 rounded-lg hover:bg-white/5 cursor-pointer flex items-center gap-3 group">
                                     <div class="w-8 h-8 rounded-lg bg-solar-gradient flex items-center justify-center shadow-lg">
-                                        <i data-lucide="zap" class="w-4 h-4 text-navy"></i>
+                                        <i data-lucide="activity" class="w-4 h-4 text-navy"></i>
                                     </div>
                                     <div class="flex flex-col">
-                                        <span class="text-xs font-bold text-white font-heading">DEV PRO 1.0</span>
+                                        <span class="text-xs font-bold text-white font-heading">DEV Pro 1.0</span>
                                         <span class="text-[9px] text-gray-500">Deep Logic & Creative</span>
                                     </div>
                                 </div>
                                 <div onclick="selectModel('dev-flash', 'DEV FLASH 1.0')" class="p-2.5 rounded-lg hover:bg-white/5 cursor-pointer flex items-center gap-3 group mt-1">
                                     <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center border border-white/5">
-                                        <i data-lucide="activity" class="w-4 h-4 text-gray-400"></i>
+                                        <i data-lucide="zap" class="w-4 h-4 text-gray-400"></i>
                                     </div>
                                     <div class="flex flex-col">
-                                        <span class="text-xs font-bold text-gray-400 group-hover:text-white font-heading transition-colors">DEV FLASH 1.0</span>
+                                        <span class="text-xs font-bold text-gray-400 group-hover:text-white font-heading transition-colors">DEV Flash 1.0</span>
                                         <span class="text-[9px] text-gray-600 group-hover:text-gray-500">High Speed & Concise</span>
                                     </div>
                                 </div>
