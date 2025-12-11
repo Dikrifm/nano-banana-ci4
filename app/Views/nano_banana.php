@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
 <title>DEV.daily</title>
 
-<!-- ASSETS LOKAL -->
 <link rel="stylesheet" href="<?= base_url('assets/css/typography.css') ?>">
 <script src="<?= base_url('assets/js/tailwind.js') ?>"></script>
 <script src="<?= base_url('assets/js/lucide.js') ?>"></script>
@@ -62,7 +61,6 @@
 </head>
 <body class="h-[100dvh] flex flex-col overflow-hidden relative">
 
-    <!-- HEADER: CLEAN & CENTERED -->
     <header class="h-16 shrink-0 fixed top-0 w-full z-50 flex items-center justify-between px-5 bg-navy/80 backdrop-blur-md border-b border-white/5">
         <button onclick="toggleSidebar()" class="p-2 text-gray-400 hover:text-white"><i data-lucide="menu" class="w-5 h-5"></i></button>
         
@@ -75,7 +73,6 @@
         </button>
     </header>
 
-    <!-- SIDEBAR -->
     <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-[#00050f] border-r border-white/5 transform -translate-x-full transition-transform duration-300 z-[60] flex flex-col pt-16">
         <div class="p-4 border-b border-white/5">
             <span class="text-[10px] font-sub font-bold text-gray-500 uppercase tracking-widest">System Info</span>
@@ -85,25 +82,20 @@
     </aside>
     <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] hidden transition-opacity"></div>
 
-    <!-- MAIN AREA -->
     <main class="flex-1 overflow-y-auto scroll-smooth pt-16 pb-32" id="scroll-container">
         
-        <!-- Welcome State -->
         <div id="welcome" class="hidden h-full flex flex-col items-center justify-center opacity-50 select-none pt-10">
             <img src="<?= base_url('assets/img/logo.png') ?>" class="h-16 object-contain mb-4 opacity-80 animate-pulse">
             <h2 class="font-heading text-lg text-gray-500">READY FOR INPUT</h2>
         </div>
 
-        <!-- Chat Stream -->
         <div id="chat-stream" class="flex flex-col gap-6 p-4 md:p-6 max-w-4xl mx-auto"></div>
 
     </main>
 
-    <!-- INPUT DECK: SMART CAPSULE -->
     <div class="fixed bottom-0 w-full p-4 z-50 bg-gradient-to-t from-[#00091a] via-[#00091a]/95 to-transparent pointer-events-none">
         <div class="max-w-4xl mx-auto pointer-events-auto relative">
             
-            <!-- Image Preview (Popup) -->
             <div id="preview-area" class="hidden absolute -top-16 left-0 bg-navy-lighter border border-white/10 p-2 rounded-xl flex items-center gap-3 shadow-xl animate-fade-in">
                 <img id="preview-img" class="h-10 w-10 rounded-lg object-cover border border-white/10">
                 <div class="flex flex-col">
@@ -113,58 +105,55 @@
                 <button onclick="clearImage()" class="p-1 hover:bg-white/10 rounded text-red"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
 
-            <!-- CAPSULE CONTAINER -->
             <div class="bg-[#021b42]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-1.5 flex flex-col shadow-2xl transition-all focus-within:border-white/30 focus-within:bg-[#021b42]">
                 
-                <!-- LEVEL 1: Textarea -->
                 <textarea id="prompt" rows="1" 
                     class="w-full bg-transparent border-none text-gray-100 placeholder-gray-500 text-base focus:ring-0 resize-none px-4 pt-3 pb-1 font-body max-h-32 leading-relaxed"
                     placeholder="Input command..." oninput="autoGrow(this)" onkeydown="checkSubmit(event)"></textarea>
 
-                <!-- LEVEL 2: Controls -->
                 <div class="flex justify-between items-center px-2 pb-1 relative">
                     
                     <div class="flex items-center gap-2">
-                        <!-- Upload Button -->
                         <button onclick="document.getElementById('f').click()" class="p-2 rounded-full hover:bg-white/5 text-gray-400 hover:text-white transition-colors">
                             <i data-lucide="paperclip" class="w-5 h-5"></i>
                             <input type="file" id="f" class="hidden" accept="image/*" onchange="handleFile(this)">
                         </button>
 
-                        <!-- CUSTOM MODEL SELECTOR (Pill) -->
                         <div class="relative">
                             <button onclick="toggleModelMenu()" id="model-trigger" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all group">
                                 <span id="current-model-label" class="text-[10px] font-heading font-bold text-gray-300 uppercase tracking-wide group-hover:text-white">DEV Pro 1.0</span>
                                 <i data-lucide="chevron-up" class="w-3 h-3 text-gray-500 group-hover:text-white transition-transform" id="model-arrow"></i>
                             </button>
 
-                            <!-- POPUP MENU (Hidden by default) -->
-                            <div id="model-menu" class="hidden absolute bottom-full left-0 mb-2 w-48 bg-[#0b1829] border border-white/10 rounded-xl shadow-2xl p-1 z-50 dropdown-enter overflow-hidden">
-                                <div onclick="selectModel('dev-pro', 'DEV PRO 1.0')" class="p-2.5 rounded-lg hover:bg-white/5 cursor-pointer flex items-center gap-3 group">
-                                    <div class="w-8 h-8 rounded-lg bg-solar-gradient flex items-center justify-center shadow-lg">
-                                        <i data-lucide="activity" class="w-4 h-4 text-navy"></i>
+                            <div id="model-menu" class="hidden absolute bottom-full left-0 mb-2 w-52 bg-[#0b1829] border border-white/10 rounded-xl shadow-2xl p-1 z-50 dropdown-enter overflow-hidden">
+                                
+                                <div id="opt-dev-pro" onclick="selectModel('dev-pro', 'DEV Pro 1.0')" class="p-2.5 rounded-lg cursor-pointer flex items-center gap-3 group transition-all duration-200">
+                                    <div id="icon-dev-pro" class="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg transition-all duration-200">
+                                        <i data-lucide="activity" class="w-4 h-4 transition-colors duration-200"></i>
                                     </div>
                                     <div class="flex flex-col">
-                                        <span class="text-xs font-bold text-white font-heading">DEV Pro 1.0</span>
+                                        <span id="text-dev-pro" class="text-xs font-bold font-heading transition-colors duration-200">DEV Pro 1.0</span>
                                         <span class="text-[9px] text-gray-500">Deep Logic & Creative</span>
                                     </div>
+                                    <i id="check-dev-pro" data-lucide="check" class="w-3 h-3 text-solar-start ml-auto opacity-0 transition-opacity"></i>
                                 </div>
-                                <div onclick="selectModel('dev-flash', 'DEV FLASH 1.0')" class="p-2.5 rounded-lg hover:bg-white/5 cursor-pointer flex items-center gap-3 group mt-1">
-                                    <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center border border-white/5">
-                                        <i data-lucide="zap" class="w-4 h-4 text-gray-400"></i>
+
+                                <div id="opt-dev-flash" onclick="selectModel('dev-flash', 'DEV Flash 1.0')" class="p-2.5 rounded-lg cursor-pointer flex items-center gap-3 group mt-1 transition-all duration-200">
+                                    <div id="icon-dev-flash" class="w-8 h-8 rounded-lg flex items-center justify-center border border-white/5 transition-all duration-200">
+                                        <i data-lucide="zap" class="w-4 h-4 transition-colors duration-200"></i>
                                     </div>
                                     <div class="flex flex-col">
-                                        <span class="text-xs font-bold text-gray-400 group-hover:text-white font-heading transition-colors">DEV Flash 1.0</span>
-                                        <span class="text-[9px] text-gray-600 group-hover:text-gray-500">High Speed & Concise</span>
+                                        <span id="text-dev-flash" class="text-xs font-bold font-heading transition-colors duration-200">DEV Flash 1.0</span>
+                                        <span class="text-[9px] text-gray-600">High Speed & Concise</span>
                                     </div>
+                                    <i id="check-dev-flash" data-lucide="check" class="w-3 h-3 text-solar-start ml-auto opacity-0 transition-opacity"></i>
                                 </div>
+
                             </div>
-                            <!-- Hidden Input to store value -->
                             <input type="hidden" id="selected-model-value" value="dev-pro">
                         </div>
                     </div>
 
-                    <!-- Send Button -->
                     <button onclick="run()" id="btn-send" class="p-2.5 rounded-full bg-solar-gradient text-navy-text shadow-lg hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:grayscale">
                         <i data-lucide="arrow-up" class="w-5 h-5 font-bold"></i>
                     </button>
@@ -177,7 +166,7 @@
         lucide.createIcons();
         let b64 = null;
 
-        // --- MODEL SELECTOR LOGIC ---
+        // --- MODEL SELECTOR LOGIC (REACTIVE) ---
         function toggleModelMenu() {
             const menu = document.getElementById('model-menu');
             const arrow = document.getElementById('model-arrow');
@@ -188,29 +177,52 @@
         function selectModel(value, label) {
             document.getElementById('selected-model-value').value = value;
             document.getElementById('current-model-label').innerText = label;
+            
+            updateModelVisuals(value);
             toggleModelMenu();
-            // Visual Feedback
+            
             const trigger = document.getElementById('model-trigger');
-            trigger.classList.add('ring-1', 'ring-solar-start');
-            setTimeout(() => trigger.classList.remove('ring-1', 'ring-solar-start'), 300);
+            trigger.classList.add('ring-1', 'ring-solar-start', 'bg-white/10');
+            setTimeout(() => trigger.classList.remove('ring-1', 'ring-solar-start', 'bg-white/10'), 300);
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('model-menu');
-            const trigger = document.getElementById('model-trigger');
-            if (!trigger.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.add('hidden');
-                document.getElementById('model-arrow').style.transform = 'rotate(0deg)';
-            }
-        });
+        function updateModelVisuals(activeModel) {
+            const models = ['dev-pro', 'dev-flash'];
+            models.forEach(model => {
+                const isActive = (model === activeModel);
+                const row = document.getElementById(`opt-${model}`);
+                const iconBox = document.getElementById(`icon-${model}`);
+                const iconSvg = iconBox.querySelector('i');
+                const title = document.getElementById(`text-${model}`);
+                const check = document.getElementById(`check-${model}`);
+
+                if (isActive) {
+                    row.classList.add('bg-white/10');
+                    iconBox.classList.remove('bg-white/5', 'border', 'border-white/5');
+                    iconBox.classList.add('bg-solar-gradient');
+                    iconSvg.classList.remove('text-gray-400');
+                    iconSvg.classList.add('text-navy');
+                    title.classList.remove('text-gray-400');
+                    title.classList.add('text-white');
+                    check.classList.remove('opacity-0');
+                } else {
+                    row.classList.remove('bg-white/10');
+                    iconBox.classList.remove('bg-solar-gradient');
+                    iconBox.classList.add('bg-white/5', 'border', 'border-white/5');
+                    iconSvg.classList.remove('text-navy');
+                    iconSvg.classList.add('text-gray-400');
+                    title.classList.remove('text-white');
+                    title.classList.add('text-gray-400');
+                    check.classList.add('opacity-0');
+                }
+            });
+        }
 
         // --- RENDER ENGINE ---
         function createBlock(role, text, time, isNew = false) {
             const container = document.createElement('div');
             container.className = `flex flex-col ${isNew ? 'msg-enter' : ''} ${role === 'user' ? 'items-end' : 'items-start'}`;
             
-            // Header Logic
             let headerHTML = '';
             if (role === 'user') {
                 headerHTML = `
@@ -233,13 +245,11 @@
                     <span class="text-[9px] text-gray-600 mt-1 mr-1 font-sub block text-right">${time}</span>
                 `;
             } else {
-                // AI Block with Footer
                 contentHTML = `
                     <div class="w-full md:max-w-3xl pl-0">
                         <div class="prose prose-invert max-w-none text-gray-300 font-body leading-relaxed mb-3 text-sm md:text-base">
                             ${marked.parse(text)}
                         </div>
-                        <!-- ACTION FOOTER -->
                         <div class="flex items-center gap-4 pt-2 border-t border-white/5 opacity-80 hover:opacity-100 transition-opacity">
                             <button onclick="copyResponse(this)" class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-white/5 transition-colors group">
                                 <i data-lucide="copy" class="w-3 h-3 text-gray-500 group-hover:text-solar-start"></i>
@@ -278,24 +288,19 @@
             setTimeout(()=>btn.innerHTML=o,2000); lucide.createIcons();
         }
         window.copyResponse = function(btn) {
-            // Find text content (prose div is previous sibling of footer's parent)
             const footer = btn.parentElement;
             const prose = footer.previousElementSibling;
             navigator.clipboard.writeText(prose.innerText);
-            
             const span = btn.querySelector('span');
             const ori = span.innerText;
             span.innerText = "DISALIN";
             span.classList.add('text-green-500');
-            setTimeout(()=>{ 
-                span.innerText = ori; 
-                span.classList.remove('text-green-500'); 
-            }, 2000);
+            setTimeout(()=>{ span.innerText = ori; span.classList.remove('text-green-500'); }, 2000);
         }
 
         async function run() {
             const pIn = document.getElementById('prompt'); const p = pIn.value.trim(); 
-            const m = document.getElementById('selected-model-value').value; // Get value from hidden input
+            const m = document.getElementById('selected-model-value').value;
             if(!p) return;
             const btn = document.getElementById('btn-send'); const stream = document.getElementById('chat-stream');
             const now = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
@@ -308,7 +313,7 @@
             pIn.value=''; pIn.style.height='auto'; clearImage();
 
             try {
-                const res = await fetch('/api/generate', {
+                const res = await fetch('/ai/generate', {
                     method: 'POST', headers: {'Content-Type':'application/json'},
                     body: JSON.stringify({prompt:p, image:b64, model:m})
                 });
@@ -321,7 +326,7 @@
         
         async function loadHistory() {
             try {
-                const res = await fetch('/api/history'); const d = await res.json();
+                const res = await fetch('/ai/history'); const d = await res.json();
                 if(!d.history || d.history.length===0) { document.getElementById('welcome').classList.remove('hidden'); return; }
                 d.history.reverse().forEach(i => {
                     const t = new Date(i.created_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
@@ -343,8 +348,48 @@
             if(sb.classList.contains('-translate-x-full')) { sb.classList.remove('-translate-x-full'); ov.classList.remove('hidden'); }
             else { sb.classList.add('-translate-x-full'); ov.classList.add('hidden'); }
         }
-        function clearHistory() { document.getElementById('chat-stream').innerHTML=''; document.getElementById('welcome').classList.remove('hidden'); }
-        window.onload = loadHistory;
+                async function clearHistory() { 
+            if(!confirm('Hapus seluruh riwayat chat secara permanen?')) return;
+            
+            const btn = document.querySelector('button[onclick="clearHistory()"]');
+            const oriIcon = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>'; // Loading icon
+            
+            try {
+                const res = await fetch('/ai/clear', { method: 'DELETE' });
+                const d = await res.json();
+                
+                if(d.status === 'success') {
+                    // Bersihkan UI setelah Database bersih
+                    document.getElementById('chat-stream').innerHTML=''; 
+                    document.getElementById('welcome').classList.remove('hidden');
+                } else {
+                    alert('Gagal menghapus: ' + d.message);
+                }
+            } catch(e) {
+                alert('Koneksi Error');
+            } finally {
+                btn.innerHTML = oriIcon;
+                lucide.createIcons();
+            }
+        }
+        
+        // CLICK OUTSIDE LISTENER
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('model-menu');
+            const trigger = document.getElementById('model-trigger');
+            if (!trigger.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add('hidden');
+                document.getElementById('model-arrow').style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // INIT
+        window.onload = function() {
+            loadHistory();
+            updateModelVisuals('dev-pro'); // Set Default Visual
+            lucide.createIcons();
+        };
     </script>
 </body>
 </html>

@@ -1,0 +1,196 @@
+=== STRUKTUR PROJECT NANO-BANANA-CI4 (USER ONLY) ===
+
+[FILE STRUCTURE]
+.
+├── .env
+├── .gitignore
+├── LICENSE
+├── README.md
+├── app
+│   ├── .htaccess
+│   ├── Common.php
+│   ├── Config
+│   │   ├── App.php
+│   │   ├── Autoload.php
+│   │   ├── Boot
+│   │   │   ├── development.php
+│   │   │   ├── production.php
+│   │   │   └── testing.php
+│   │   ├── CURLRequest.php
+│   │   ├── Cache.php
+│   │   ├── Constants.php
+│   │   ├── ContentSecurityPolicy.php
+│   │   ├── Cookie.php
+│   │   ├── Cors.php
+│   │   ├── Database.php
+│   │   ├── DocTypes.php
+│   │   ├── Email.php
+│   │   ├── Encryption.php
+│   │   ├── Events.php
+│   │   ├── Exceptions.php
+│   │   ├── Feature.php
+│   │   ├── Filters.php
+│   │   ├── ForeignCharacters.php
+│   │   ├── Format.php
+│   │   ├── Generators.php
+│   │   ├── Honeypot.php
+│   │   ├── Images.php
+│   │   ├── Kint.php
+│   │   ├── Logger.php
+│   │   ├── Migrations.php
+│   │   ├── Mimes.php
+│   │   ├── Modules.php
+│   │   ├── Optimize.php
+│   │   ├── Pager.php
+│   │   ├── Paths.php
+│   │   ├── Publisher.php
+│   │   ├── Routes.php
+│   │   ├── Routing.php
+│   │   ├── Security.php
+│   │   ├── Services.php
+│   │   ├── Session.php
+│   │   ├── Toolbar.php
+│   │   ├── UserAgents.php
+│   │   ├── Validation.php
+│   │   └── View.php
+│   ├── Controllers
+│   │   ├── Ai.php
+│   │   ├── BaseController.php
+│   │   └── Home.php
+│   ├── Database
+│   │   ├── Migrations
+│   │   │   ├── .gitkeep
+│   │   │   └── 2025-12-02-132741_AddAiLogs.php
+│   │   └── Seeds
+│   │       └── .gitkeep
+│   ├── Filters
+│   │   └── .gitkeep
+│   ├── Helpers
+│   │   └── .gitkeep
+│   ├── Language
+│   │   ├── .gitkeep
+│   │   └── en
+│   │       └── Validation.php
+│   ├── Libraries
+│   │   └── .gitkeep
+│   ├── Models
+│   │   ├── .gitkeep
+│   │   └── AiLogModel.php
+│   ├── ThirdParty
+│   │   └── .gitkeep
+│   ├── Views
+│   │   ├── errors
+│   │   │   ├── cli
+│   │   │   │   ├── error_404.php
+│   │   │   │   ├── error_exception.php
+│   │   │   │   └── production.php
+│   │   │   └── html
+│   │   │       ├── debug.css
+│   │   │       ├── debug.js
+│   │   │       ├── error_400.php
+│   │   │       ├── error_404.php
+│   │   │       ├── error_exception.php
+│   │   │       └── production.php
+│   │   ├── nano_banana.php
+│   │   └── welcome_message.php
+│   └── index.html
+├── builds
+├── composer.json
+├── composer.lock
+├── env
+├── laporan_ci4.txt
+├── phpunit.xml.dist
+├── preload.php
+├── public
+│   ├── .htaccess
+│   ├── assets
+│   │   ├── css
+│   │   │   ├── fonts.css
+│   │   │   ├── highlight.css
+│   │   │   └── typography.css
+│   │   ├── fonts
+│   │   │   ├── codex.ttf
+│   │   │   ├── condensed.ttf
+│   │   │   └── roboto.ttf
+│   │   ├── img
+│   │   │   ├── icon.png
+│   │   │   └── logo.png
+│   │   └── js
+│   │       ├── highlight.js
+│   │       ├── lucide.js
+│   │       ├── marked.js
+│   │       └── tailwind.js
+│   ├── favicon.ico
+│   ├── index.php
+│   └── robots.txt
+├── spark
+├── tests
+│   ├── .htaccess
+│   ├── README.md
+│   ├── _support
+│   │   ├── Database
+│   │   │   ├── Migrations
+│   │   │   │   └── 2020-02-22-222222_example_migration.php
+│   │   │   └── Seeds
+│   │   │       └── ExampleSeeder.php
+│   │   ├── Libraries
+│   │   │   └── ConfigReader.php
+│   │   └── Models
+│   │       └── ExampleModel.php
+│   ├── database
+│   │   └── ExampleDatabaseTest.php
+│   ├── index.html
+│   └── unit
+│       └── HealthTest.php
+└── writable
+    ├── .htaccess
+    ├── debugbar
+    │   ├── debugbar_1764754851.005850.json
+    │   ├── debugbar_1764890690.075507.json
+    │   ├── debugbar_1764890693.505646.json
+    │   ├── debugbar_1764891101.103643.json
+    │   ├── debugbar_1764891102.563129.json
+    │   ├── debugbar_1764891464.794307.json
+    │   ├── debugbar_1764891466.300511.json
+    │   ├── debugbar_1764893485.225798.json
+    │   ├── debugbar_1764893486.945144.json
+    │   ├── debugbar_1764896640.860277.json
+    │   ├── debugbar_1764896643.335485.json
+    │   ├── debugbar_1764896794.212512.json
+    │   ├── debugbar_1764896796.060819.json
+    │   ├── debugbar_1764896813.426613.json
+    │   ├── debugbar_1764898910.797887.json
+    │   ├── debugbar_1764898914.258479.json
+    │   ├── debugbar_1764899187.654718.json
+    │   ├── debugbar_1764900224.931874.json
+    │   ├── debugbar_1764900227.803921.json
+    │   ├── debugbar_1765406566.226761.json
+    │   ├── debugbar_1765406567.826795.json
+    │   └── index.html
+    ├── index.html
+    ├── nano_banana.db
+    └── uploads
+        └── index.html
+
+37 directories, 133 files
+
+[DATABASE SCHEMA - SQLITE]
+Source DB: writable/nano_banana.db
+------------------------------------------------
+CREATE TABLE `migrations` (
+	`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+	`version` VARCHAR NOT NULL,
+	`class` VARCHAR NOT NULL,
+	`group` VARCHAR NOT NULL,
+	`namespace` VARCHAR NOT NULL,
+	`time` INT NOT NULL,
+	`batch` INT NOT NULL
+);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE `ai_logs` (
+	`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+	`prompt` TEXT NOT NULL,
+	`response` TEXT NULL,
+	`created_at` DATETIME NULL,
+	`updated_at` DATETIME NULL
+);

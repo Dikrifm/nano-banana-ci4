@@ -1,0 +1,150 @@
+nohup: ignoring input
+
+CodeIgniter v4.6.3 Command Line Tool - Server Time: 2025-12-11 00:28:59 UTC+00:00
+
+CodeIgniter development server started on http://localhost:8080
+Press Control-C to stop.
+[Thu Dec 11 07:28:59 2025] PHP 8.4.2 Development Server (http://localhost:8080) started
+[Thu Dec 11 07:29:15 2025] 127.0.0.1:46186 Accepted
+[Thu Dec 11 07:29:15 2025] 127.0.0.1:46186 Closing
+[Thu Dec 11 07:32:35 2025] 127.0.0.1:45362 Accepted
+[Thu Dec 11 07:32:35 2025] 127.0.0.1:45362 Closing
+[Thu Dec 11 07:36:05 2025] 127.0.0.1:46402 Accepted
+[Thu Dec 11 07:36:05 2025] 127.0.0.1:46402 Closing
+[Thu Dec 11 07:40:05 2025] 127.0.0.1:52864 Accepted
+[Thu Dec 11 07:40:07 2025] 127.0.0.1:52864 Closing
+[Thu Dec 11 07:44:21 2025] 127.0.0.1:55990 Accepted
+[Thu Dec 11 07:44:21 2025] 127.0.0.1:55990 Closing
+[Thu Dec 11 07:44:21 2025] 127.0.0.1:56004 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56004 [200]: GET /index.php?debugbar
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56004 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56008 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56022 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56008 [200]: GET /assets/css/typography.css
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56028 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56022 [200]: GET /assets/js/tailwind.js
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56036 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56028 [200]: GET /assets/js/lucide.js
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56048 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56008 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56036 [200]: GET /assets/js/marked.js
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56052 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56048 [200]: GET /assets/js/highlight.js
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56056 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56052 [200]: GET /assets/css/highlight.css
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56036 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56056 [200]: GET /assets/img/logo.png
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56022 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56048 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56052 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56028 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56056 Closing
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56070 Accepted
+[Thu Dec 11 07:44:22 2025] 127.0.0.1:56072 Accepted
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56074 Accepted
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56070 [200]: GET /assets/fonts/roboto.ttf
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56072 [200]: GET /assets/fonts/codex.ttf
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56074 [200]: GET /assets/fonts/condensed.ttf
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56070 Closing
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56074 Closing
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56072 Closing
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56088 Accepted
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56088 [200]: GET /index.php?debugbar_time=1765413861.772176
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56088 Closing
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56094 Accepted
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56098 Accepted
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56094 Closing
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56098 [200]: GET /favicon.ico
+[Thu Dec 11 07:44:23 2025] 127.0.0.1:56098 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58576 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58576 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58588 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58588 [200]: GET /index.php?debugbar
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58588 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58594 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58608 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58594 [200]: GET /assets/css/typography.css
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58618 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58608 [200]: GET /assets/js/tailwind.js
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58628 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58618 [200]: GET /assets/js/lucide.js
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58638 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58594 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58628 [200]: GET /assets/js/marked.js
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58652 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58638 [200]: GET /assets/js/highlight.js
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58656 Accepted
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58652 [200]: GET /assets/css/highlight.css
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58628 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58656 [200]: GET /assets/img/logo.png
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58608 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58638 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58652 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58618 Closing
+[Thu Dec 11 08:07:06 2025] 127.0.0.1:58656 Closing
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58660 Accepted
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58668 Accepted
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58678 Accepted
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58660 [200]: GET /assets/fonts/roboto.ttf
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58668 [200]: GET /assets/fonts/codex.ttf
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58678 [200]: GET /assets/fonts/condensed.ttf
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58660 Closing
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58678 Closing
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58668 Closing
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58682 Accepted
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58682 [200]: GET /index.php?debugbar_time=1765415226.484298
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58682 Closing
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58694 Accepted
+[Thu Dec 11 08:07:07 2025] 127.0.0.1:58706 Accepted
+[Thu Dec 11 08:07:08 2025] 127.0.0.1:58694 Closing
+[Thu Dec 11 08:07:08 2025] 127.0.0.1:58706 [200]: GET /favicon.ico
+[Thu Dec 11 08:07:08 2025] 127.0.0.1:58706 Closing
+[Thu Dec 11 08:09:12 2025] 127.0.0.1:49568 Accepted
+[Thu Dec 11 08:09:12 2025] 127.0.0.1:49568 Closing
+[Thu Dec 11 08:09:12 2025] 127.0.0.1:49580 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49580 [200]: GET /index.php?debugbar
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49580 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49588 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49592 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49588 [200]: GET /assets/css/typography.css
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49598 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49592 [200]: GET /assets/js/tailwind.js
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49600 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49598 [200]: GET /assets/js/lucide.js
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49616 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49588 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49600 [200]: GET /assets/js/marked.js
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49618 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49616 [200]: GET /assets/js/highlight.js
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49618 [200]: GET /assets/css/highlight.css
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49620 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49600 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49592 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49616 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49618 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49598 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49620 [200]: GET /assets/img/logo.png
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49620 Closing
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49630 Accepted
+[Thu Dec 11 08:09:13 2025] 127.0.0.1:49642 Accepted
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49648 Accepted
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49630 [200]: GET /assets/fonts/roboto.ttf
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49642 [200]: GET /assets/fonts/codex.ttf
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49648 [200]: GET /assets/fonts/condensed.ttf
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49630 Closing
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49642 Closing
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49648 Closing
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49654 Accepted
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49654 [200]: GET /index.php?debugbar_time=1765415352.919573
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49654 Closing
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49670 Accepted
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49674 Accepted
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49670 Closing
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49674 [200]: GET /favicon.ico
+[Thu Dec 11 08:09:14 2025] 127.0.0.1:49674 Closing
+[Thu Dec 11 08:09:18 2025] 127.0.0.1:49682 Accepted
+[Thu Dec 11 08:09:18 2025] 127.0.0.1:49682 Closing
+[Thu Dec 11 08:09:53 2025] 127.0.0.1:53610 Accepted
+[Thu Dec 11 08:09:54 2025] 127.0.0.1:53610 Closing
+[Thu Dec 11 08:10:23 2025] 127.0.0.1:60390 Accepted
+[Thu Dec 11 08:10:25 2025] 127.0.0.1:60390 Closing

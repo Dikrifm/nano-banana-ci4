@@ -1,0 +1,6 @@
+/data/data/com.termux/files/usr/bin/mysqld_safe: Deprecated program name. It will be removed in a future release, use 'mariadbd-safe' instead
+251211 07:03:08 mysqld_safe Logging to '/data/data/com.termux/files/usr/var/lib/mysql/localhost.err'.
+251211 07:03:08 mysqld_safe A mysqld process already exists
+/data/data/com.termux/files/usr/bin/mysqld_safe: Deprecated program name. It will be removed in a future release, use 'mariadbd-safe' instead
+251211 07:03:27 mysqld_safe Logging to '/data/data/com.termux/files/usr/var/lib/mysql/localhost.err'.
+251211 07:03:27 mysqld_safe A mysqld process already exists
